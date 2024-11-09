@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bases": {
+    "gifs-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bases",
+            "outputPath": "dist/gifs-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bases:build"
+            "browserTarget": "gifs-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bases:build:production"
+              "browserTarget": "gifs-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bases:build"
+            "browserTarget": "gifs-app:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bases:serve"
+            "devServerTarget": "gifs-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bases:serve:production"
+              "devServerTarget": "gifs-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "bases"
+  "defaultProject": "gifs-app"
 }
