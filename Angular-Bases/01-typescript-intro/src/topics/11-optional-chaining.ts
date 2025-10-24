@@ -1,27 +1,22 @@
-
 export interface Passenger {
     name: string;
     children?: string[];
 }
-
 const passenger1: Passenger = {
-    name: 'Fernando',
-}
-
+    name: 'Edwin Tinitana'
+};
 const passenger2: Passenger = {
-    name: 'Melissa',
-    children: ['Natalia','Elizabeth'],
-}
+    name: 'Elena Martinez',
+    children: ['Jessica Tinitana', 'Gabriel Tinitana']
+}; 
 
-const returnChildrenNumber = ( passenger: Passenger ): number => {
 
+function printChildren(passenger: Passenger): void {
     const howManyChildren = passenger.children?.length || 0;
-    // const howManyChildren = passenger.children!.length;
+    console.log(passenger.name,howManyChildren);
+    //console.log(passenger.children?.length ?? 'No tiene hijos'); // null ?? undefined
 
-    console.log( passenger.name, howManyChildren);
-
-    return howManyChildren;
 }
 
-
-returnChildrenNumber( passenger1 );
+printChildren(passenger1);
+printChildren(passenger2);

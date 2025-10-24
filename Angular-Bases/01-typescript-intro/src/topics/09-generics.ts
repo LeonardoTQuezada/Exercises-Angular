@@ -1,16 +1,22 @@
 
 
-export function whatsMyType<T>( argument: T ): T {
 
+
+
+
+
+
+
+export function whatIsMyType<T>(argument: T): T {
     return argument;
-}
+}   
 
-const amIString = whatsMyType<string>('Hola Mundo');
-const amINumber = whatsMyType<number>(100);
-const amIArray  = whatsMyType<number[]>([1,2,3,4,5]);
+let amIString = whatIsMyType<string>('Hello World');
+const amINumber = whatIsMyType<number>(100);
+const amIArray = whatIsMyType<number[]>([1,2,3,4,5]);
+const amIObject = whatIsMyType({ name: 'Edwin', age: 52 }); 
 
-console.log( amIString.split(' ') );
-console.log( amINumber.toFixed() );
-console.log( amIArray.join('-') );
-
-
+console.log('amIString', amIString.split);
+console.log('amINumber', amINumber.toFixed);
+console.log('amIArray', amIArray.join(' - '));
+console.log('amIObject', amIObject);    

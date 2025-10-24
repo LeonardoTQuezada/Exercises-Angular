@@ -1,50 +1,44 @@
 
-
 export class Person {
-    // public name: string;
-    // private address: string;
 
-    constructor( 
-        public firstName: string, 
-        public lastName: string, 
-        private address: string = 'No Address'
-    ) {}
+    public name: string;
+    private address: string;
 
+    constructor(name: string, address: string) {
+        this.name = name;
+        this.address = address;
+    }
+    
 }
 
 // export class Hero extends Person {
+//     public alterEgo: string;
+//     public age: number;
+//     public realName?: string;
 
-//     constructor(
-//         public alterEgo: string,
-//         public age: number, 
-//         public realName: string,
-//     ) {
-//         super( realName, 'New York' );
-//     }
-
+//     constructor(name: string, address: string, alterEgo: string, age: number, realName?: string) {
+//         super(name, address);
+//         this.alterEgo = alterEgo;
+//         this.age = age;
+//         this.realName = realName;
+//     }   
 // }
-export class Hero {
 
-    // public person: Person;
 
-    constructor(
-        public alterEgo: string,
-        public age: number, 
-        public realName: string,
-        public person: Person,
-    ) {
+export class Hero  {
+    public alterEgo: string;
+    public age: number;
+    public realName?: string;
+    public person: Person;  
+    constructor( person: Person, alterEgo: string, age: number, realName: string) {
         
-        // this.person = new Person(realName);
-
-    }
-
+        this.alterEgo = alterEgo;
+        this.age = age;
+        this.realName = realName;
+        this.person = person;
+    }   
 }
 
-const tony = new Person('Tony','Stark','New York');
-
-const ironman = new Hero('Ironman',45,'Tony',tony);
-
-
-console.log(ironman)
-
-
+const tony = new Person('Tony', 'New York, USA');
+const iroman = new Hero(tony,  'Iron Man', 45, 'Anthony Edward Stark');
+console.log(iroman);
