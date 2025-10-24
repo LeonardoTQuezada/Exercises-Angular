@@ -18,11 +18,12 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+        "primeng/*": ["node_modules/primeng-lts/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableIvy": true
-
+    "strictInjectionParameters": true
   }
 }

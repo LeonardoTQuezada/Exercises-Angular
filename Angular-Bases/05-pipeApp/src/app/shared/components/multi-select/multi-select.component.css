@@ -1,0 +1,28 @@
+
+
+.custom-multi-select {
+  position: relative;
+}
+
+.chips-container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.chip {
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chip-close {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #555;
+}

@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GifsModule } from './gifs/gifs.module';
 import { SharedModule } from './shared/shared.module';
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';                //api
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     HttpClientModule,
     GifsModule,
-    SharedModule
+    SharedModule,
+    AccordionModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
