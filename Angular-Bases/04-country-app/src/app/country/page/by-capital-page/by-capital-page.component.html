@@ -1,0 +1,23 @@
+<!--contry-search-imput-->
+<country-search-imput placeholder="Buscar por capital"
+(value)="query.set($event)"
+>
+</country-search-imput>
+
+<country-list
+[errorMessage]="countryResourse.error()"
+[isLoading]="countryResourse.isLoading()"
+[isEmpty]="countryResourse.value()?.length === 0"
+[countries] =" countryResourse.value() ?? []" />
+
+<!--country-list  otra manera de hacer lor errores-->
+<!-- @if ( countryResourse.error())
+{
+  <div class="alert alert-danger mt-2" role="alert">
+    {{countryResourse.error()}}
+  </div>
+} @if ( countryResourse.hasValue()){
+<country-list [countries] =" countryResourse.value()!" />
+} -->
+
+
