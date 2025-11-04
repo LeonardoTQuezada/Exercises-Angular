@@ -15,7 +15,7 @@
     </div>
 
     <div class="stat place-items-center">
-      <div class="stat-title">Bandera</div >
+      <div class="stat-title">Bandera</div>
       <div class="stat-value">{{ country().flag}}</div>
       <div class="stat-desc">{{ country().subRegion}}</div>
     </div>
@@ -27,12 +27,16 @@
   </div>
 </section>
 
-<section class="diff aspect-16/9">
-  <div class="diff-item-1">
-    <img [src]="country().flagSvg" [alt]="'Bandera de ' + country().name" />
+<section class="container">
+
+  <div class="diff aspect-[16/9] w-4/12 mx-5 my-10">
+    <div class="diff-item-1">
+      <img [src]="country().flagSvg" [alt]="'Bandera de ' + country().name" />
+    </div>
+    <div class="diff-item-2">
+      <img class="blur brightness-75 " [src]="country().flagSvg" [alt]="'Bandera de ' + country().name" />
+    </div>
+    <div class="diff-resizer "></div>
   </div>
-  <div class="diff-item-2">
-    <img class="blur brightness-75" [src]="country().flagSvg" [alt]="'Bandera de ' + country().name" />
-  </div>
-  <div class="diff-resizer"></div>
+
 </section>

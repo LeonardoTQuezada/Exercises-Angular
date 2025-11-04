@@ -1,9 +1,11 @@
-import { Component, inject, resource, signal } from '@angular/core';
+import { Component, inject, linkedSignal, resource, signal } from '@angular/core';
 import { SearchImputComponent } from '../../components/search-imput/search-imput.component';
 import { ListComponent } from '../../components/list/list.component';
 import { CountryService } from '../../services/country.service';
-import { firstValueFrom, of } from 'rxjs';
+import {  Router } from '@angular/router';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-by-capital-page.component',
@@ -12,7 +14,17 @@ import { rxResource } from '@angular/core/rxjs-interop';
 })
 export class ByCapitalPageComponent {
   countryService = inject(CountryService);
-  query = signal('');
+
+
+  activatedRoute = inject(ActivatedRoute);
+  router = inject(Router);
+
+  queryParam = this.activatedRoute.snapshot.queryParamMap.get('query') ?? '';
+
+  query = linkedSignal<string>(() => this.queryParam);  // señal vinculada para el valor de la query obtenida de los parámetros de la ruta
+
+
+
   // resource con promesas
   // countryResourse = resource({
   //   request: () => ({ query: this.query() }),
@@ -28,8 +40,11 @@ export class ByCapitalPageComponent {
  countryResourse =  rxResource({
     request: () => ({ query: this.query() }),
     loader: ({request}) => {
+      console.log( {query: request.query});
       if ( !request.query) return  of([]);
-
+      this.router.navigate(['/country/by-capital'], { // actualizar la URL con el nuevo parámetro de consulta
+        queryParams: { query: request.query },  // establecer el parámetro de consulta 'query'
+      });
       return  this.countryService.searhByCapital(request.query)
     }
   });
