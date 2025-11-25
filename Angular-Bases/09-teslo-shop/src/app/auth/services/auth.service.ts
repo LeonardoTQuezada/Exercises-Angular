@@ -3,8 +3,9 @@ import { User } from '../interfaces/user.interface';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { AuthResponse } from '../interfaces/auth-response.interdace';
+
 import { rxResource } from '@angular/core/rxjs-interop';
+import { AuthResponse } from '../interfaces/auth-response.interdace';
 
 type AuthStatus = 'checking' | 'authenticated' | 'not-authenticated';
 const baseUrl = environment.baseUrl;
@@ -34,6 +35,7 @@ export class AuthService {
 
   user = computed(() => this._user());
   token = computed(this._token);
+  isAdmin = computed(() => this._user()?.roles.includes('admin') ?? false);
 
   login(email: string, password: string): Observable<boolean> {
     return this.http
@@ -54,6 +56,9 @@ export class AuthService {
       return of(false);
     }
 
+
+    /* Implementar cache
+     */
     return this.http
       .get<AuthResponse>(`${baseUrl}/auth/check-status`, {
         // headers: {

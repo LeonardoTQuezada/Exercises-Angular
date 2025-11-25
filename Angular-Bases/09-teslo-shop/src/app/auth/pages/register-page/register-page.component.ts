@@ -2,8 +2,9 @@ import { AuthService } from '@/auth/services/auth.service';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { FormUtils } from '../../../utils/form-utils';
+
 import { CommonModule } from '@angular/common';
+import { FormUtils } from '@/utils/form-utils';
 
 @Component({
   selector: 'app-register-page',

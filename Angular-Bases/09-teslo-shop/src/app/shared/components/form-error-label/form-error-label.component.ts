@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { FormUtils } from '@/utils/form-utils';
+import { Component, input } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-error-label',
+  selector: 'form-error-label',
   imports: [],
   templateUrl: './form-error-label.component.html',
-  styles: ``
+  styles: ``,
 })
 export class FormErrorLabelComponent {
+  control = input.required<AbstractControl>();  // creo un control
 
+  get errorMessage() {
+    const errors: ValidationErrors = this.control().errors || {};
+
+    return this.control().touched && Object.keys(errors).length > 0
+      ? FormUtils.getTextError(errors)
+      : null;
+  }
 }

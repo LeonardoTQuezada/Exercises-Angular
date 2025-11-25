@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { AuthService } from '@/auth/services/auth.service';
+import { Component, computed, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard-layout',
-  imports: [],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './admin-dashboard-layout.component.html',
   styles: ``
 })
 export class AdminDashboardLayoutComponent {
+
+  authService = inject(AuthService);
+
+  user = computed(() => this.authService.user());
 
 }

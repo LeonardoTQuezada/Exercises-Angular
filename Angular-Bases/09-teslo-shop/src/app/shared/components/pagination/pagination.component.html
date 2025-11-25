@@ -1,4 +1,4 @@
-<div class="join flex justify-center items-center mt-4 mb-10">
+<div class="join flex justify-center items-center ">
   @for (page of getPagesList(); track page) {
   <button
     class="join-item btn"
@@ -16,7 +16,9 @@
   <!-- <p>No hay páginas</p> -->
   }
 </div>
-<div class="join flex justify-center items-center mt-4 mb-10">
+<!--
+Acabar esto luego
+<div class="join flex justify-center items-center ">
   @for (page of getPagesList(); track page) {
   <input
     class="join-item btn btn-square"
@@ -27,4 +29,4 @@
     [queryParams]="{ page: page }"
     checked="checked" />
   }
-</div>
+</div> -->
